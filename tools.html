@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tools | Beyond the Dollar</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Beyond the Dollar</h1>
+        <p>Understanding Money & the World Economy</p>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="money.html">Money</a>
+            <a href="economics.html">Economics</a>
+            <a href="business.html">Business</a>
+            <a href="global.html">Global Economy</a>
+            <a href="europe.html">Europe</a>
+            <a href="tools.html">Tools</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <h2>Tools</h2>
+
+            <p>
+                Interactive tools that make money and economics
+                easier to understand.
+            </p>
+        </section>
+
+
+        <section class="card">
+
+            <h2>🧮 Compound Interest Calculator</h2>
+
+            <p>
+                Calculate how your money could grow through compound interest.
+            </p>
+
+            <h3>Starting Amount</h3>
+
+            <input type="number" id="principal" placeholder="Example: 1000">
+
+            <h3>Annual Interest Rate (%)</h3>
+
+            <input type="number" id="rate" placeholder="Example: 5">
+
+            <h3>Time (Years)</h3>
+
+            <input type="number" id="years" placeholder="Example: 10">
+
+            <h3>Compounds Per Year</h3>
+
+            <input type="number" id="compound" placeholder="Example: 12">
+
+            <br><br>
+
+            <button onclick="calculateInterest()">Calculate</button>
+
+            <h3>Result</h3>
+
+            <p id="result">
+                Your result will appear here.
+            </p>
+
+        </section>
+
+
+        <section class="card">
+
+            <h2>💰 Budgeting Tools</h2>
+
+            <p>
+                Explore how income and expenses can affect a person's
+                ability to save and spend money.
+            </p>
+
+        </section>
+
+
+        <section class="card">
+
+            <h2>📈 Economic Data</h2>
+
+            <p>
+                Explore economic data and graphs to better understand
+                trends in inflation, GDP, unemployment, trade, and
+                other economic indicators.
+            </p>
+
+        </section>
+
+
+        <section class="card">
+
+            <h2>🌎 Coming Soon</h2>
+
+            <p>
+                More interactive tools and real-world economic data
+                will be added as Beyond the Dollar develops.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        function calculateInterest() {
+
+            let principal =
+                Number(document.getElementById("principal").value);
+
+            let rate =
+                Number(document.getElementById("rate").value);
+
+            let years =
+                Number(document.getElementById("years").value);
+
+            let compound =
+                Number(document.getElementById("compound").value);
+
+
+            if (principal <= 0 || rate < 0 || years <= 0 || compound <= 0) {
+
+                document.getElementById("result").textContent =
+                    "Please enter valid numbers in every field.";
+
+                return;
+            }
+
+
+            let result = principal * Math.pow(
+                1 + (rate / 100) / compound,
+                compound * years
+            );
+
+
+            let interestEarned = result - principal;
+
+
+            document.getElementById("result").textContent =
+                "Final amount: $" + result.toFixed(2) +
+                " | Interest earned: $" + interestEarned.toFixed(2);
+
+        }
+
+    </script>
+
+
+</body>
+</html>
