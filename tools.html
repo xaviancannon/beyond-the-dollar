@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Tools | Beyond the Dollar</title>
+    <meta name="description" content="Explore interactive financial tools from Beyond the Dollar, including compound interest, budgeting, and savings goal calculators.">
+
+    <title>Financial Tools | Beyond the Dollar</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -23,141 +26,670 @@
             <a href="business.html">Business</a>
             <a href="global.html">Global Economy</a>
             <a href="europe.html">Europe</a>
-            <a href="tools.html">Tools</a>
+            <a href="tools.html" class="active">Tools</a>
+            <a href="indicators.html">Indicators</a>
         </nav>
     </header>
 
     <main>
 
-        <section class="hero">
-            <h2>Tools</h2>
+        <!-- HERO -->
 
-            <p>
-                Interactive tools that make money and economics
-                easier to understand.
-            </p>
+        <section class="hero">
+            <div class="hero-content">
+                <p class="eyebrow">Financial toolkit</p>
+
+                <h2>Put Financial Knowledge Into Practice</h2>
+
+                <p>
+                    Explore interactive calculators that demonstrate
+                    how saving, spending, and investing decisions can
+                    affect your financial future.
+                </p>
+            </div>
         </section>
 
 
-        <section class="card">
+        <!-- INTRODUCTION -->
+
+        <section class="money-intro">
+            <div class="section-heading">
+                <p class="eyebrow">Explore the tools</p>
+                <h2>Make the Numbers Make Sense</h2>
+
+                <p>
+                    Financial concepts become easier to understand
+                    when you can experiment with the numbers yourself.
+                    Use these tools to explore different financial
+                    scenarios and understand the results.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- COMPOUND INTEREST -->
+
+        <section class="calculator-card" id="compound-interest">
+
+            <p class="eyebrow">Tool 01</p>
 
             <h2>🧮 Compound Interest Calculator</h2>
 
             <p>
-                Calculate how your money could grow through compound interest.
+                Compound interest allows money to grow by earning
+                interest on both the original amount and previously
+                accumulated interest.
             </p>
 
-            <h3>Starting Amount</h3>
+            <div class="business-input-grid">
 
-            <input type="number" id="principal" placeholder="Example: 1000">
+                <div class="business-input-group">
+                    <label for="principal">Starting Amount ($)</label>
+                    <input
+                        type="number"
+                        id="principal"
+                        min="0.01"
+                        step="0.01"
+                        placeholder="Example: 1000"
+                    >
+                </div>
 
-            <h3>Annual Interest Rate (%)</h3>
+                <div class="business-input-group">
+                    <label for="rate">Annual Interest Rate (%)</label>
+                    <input
+                        type="number"
+                        id="rate"
+                        min="0"
+                        step="0.01"
+                        placeholder="Example: 5"
+                    >
+                </div>
 
-            <input type="number" id="rate" placeholder="Example: 5">
+                <div class="business-input-group">
+                    <label for="years">Time (Years)</label>
+                    <input
+                        type="number"
+                        id="years"
+                        min="0.01"
+                        step="0.1"
+                        placeholder="Example: 10"
+                    >
+                </div>
 
-            <h3>Time (Years)</h3>
+                <div class="business-input-group">
+                    <label for="compound">Compounds Per Year</label>
+                    <select id="compound">
+                        <option value="1">Annually (1)</option>
+                        <option value="2">Semiannually (2)</option>
+                        <option value="4">Quarterly (4)</option>
+                        <option value="12" selected>Monthly (12)</option>
+                        <option value="365">Daily (365)</option>
+                    </select>
+                </div>
 
-            <input type="number" id="years" placeholder="Example: 10">
+            </div>
 
-            <h3>Compounds Per Year</h3>
+            <div class="business-simulator-actions">
+                <button type="button" onclick="calculateInterest()">
+                    Calculate Growth
+                </button>
+            </div>
 
-            <input type="number" id="compound" placeholder="Example: 12">
+            <div
+                class="calculator-result"
+                id="interest-result"
+                aria-live="polite"
+                aria-atomic="true"
+            >
+                Enter your information to calculate your potential
+                investment growth.
+            </div>
 
-            <br><br>
-
-            <button onclick="calculateInterest()">Calculate</button>
-
-            <h3>Result</h3>
-
-            <p id="result">
-                Your result will appear here.
+            <p class="business-disclaimer">
+                This calculator assumes a constant interest rate and
+                does not account for taxes, fees, or inflation.
+                Actual investment returns are not guaranteed.
             </p>
 
         </section>
 
 
-        <section class="card">
+        <!-- BUDGET PLANNER -->
 
-            <h2>💰 Budgeting Tools</h2>
+        <section class="calculator-card" id="budget-planner">
+
+            <p class="eyebrow">Tool 02</p>
+
+            <h2>💰 Monthly Budget Planner</h2>
 
             <p>
-                Explore how income and expenses can affect a person's
-                ability to save and spend money.
+                A budget helps you understand where your money goes.
+                Enter your monthly income and expenses to see how
+                much money remains after spending.
+            </p>
+
+            <div class="business-input-grid">
+
+                <div class="business-input-group">
+                    <label for="income">Monthly Income ($)</label>
+                    <input
+                        type="number"
+                        id="income"
+                        min="0"
+                        step="0.01"
+                        placeholder="Example: 3000"
+                    >
+                </div>
+
+                <div class="business-input-group">
+                    <label for="housing">Housing ($)</label>
+                    <input
+                        type="number"
+                        id="housing"
+                        min="0"
+                        step="0.01"
+                        placeholder="Example: 1000"
+                    >
+                </div>
+
+                <div class="business-input-group">
+                    <label for="food">Food ($)</label>
+                    <input
+                        type="number"
+                        id="food"
+                        min="0"
+                        step="0.01"
+                        placeholder="Example: 350"
+                    >
+                </div>
+
+                <div class="business-input-group">
+                    <label for="transportation">Transportation ($)</label>
+                    <input
+                        type="number"
+                        id="transportation"
+                        min="0"
+                        step="0.01"
+                        placeholder="Example: 200"
+                    >
+                </div>
+
+                <div class="business-input-group">
+                    <label for="utilities">Utilities ($)</label>
+                    <input
+                        type="number"
+                        id="utilities"
+                        min="0"
+                        step="0.01"
+                        placeholder="Example: 150"
+                    >
+                </div>
+
+                <div class="business-input-group">
+                    <label for="other-expenses">Other Expenses ($)</label>
+                    <input
+                        type="number"
+                        id="other-expenses"
+                        min="0"
+                        step="0.01"
+                        placeholder="Example: 300"
+                    >
+                </div>
+
+            </div>
+
+            <div class="business-simulator-actions">
+                <button type="button" onclick="calculateBudget()">
+                    Calculate Budget
+                </button>
+            </div>
+
+            <div
+                class="calculator-result"
+                id="budget-result"
+                aria-live="polite"
+                aria-atomic="true"
+            >
+                Enter your monthly income and expenses to see
+                your budget breakdown.
+            </div>
+
+        </section>
+
+
+        <!-- SAVINGS GOAL -->
+
+        <section class="calculator-card" id="savings-goal">
+
+            <p class="eyebrow">Tool 03</p>
+
+            <h2>🎯 Savings Goal Calculator</h2>
+
+            <p>
+                How long could it take to reach a financial goal?
+                Enter your current savings, target amount, and
+                planned monthly contribution to estimate the time
+                required to reach your goal.
+            </p>
+
+            <div class="business-input-grid">
+
+                <div class="business-input-group">
+                    <label for="current-savings">Current Savings ($)</label>
+                    <input
+                        type="number"
+                        id="current-savings"
+                        min="0"
+                        step="0.01"
+                        placeholder="Example: 500"
+                    >
+                </div>
+
+                <div class="business-input-group">
+                    <label for="savings-target">Savings Goal ($)</label>
+                    <input
+                        type="number"
+                        id="savings-target"
+                        min="0.01"
+                        step="0.01"
+                        placeholder="Example: 5000"
+                    >
+                </div>
+
+                <div class="business-input-group">
+                    <label for="monthly-savings">Monthly Contribution ($)</label>
+                    <input
+                        type="number"
+                        id="monthly-savings"
+                        min="0"
+                        step="0.01"
+                        placeholder="Example: 200"
+                    >
+                </div>
+
+                <div class="business-input-group">
+                    <label for="savings-rate">
+                        Annual Interest Rate (%)
+                    </label>
+                    <input
+                        type="number"
+                        id="savings-rate"
+                        min="0"
+                        step="0.01"
+                        value="0"
+                    >
+                </div>
+
+            </div>
+
+            <div class="business-simulator-actions">
+                <button type="button" onclick="calculateSavingsGoal()">
+                    Calculate Savings Timeline
+                </button>
+            </div>
+
+            <div
+                class="calculator-result"
+                id="savings-result"
+                aria-live="polite"
+                aria-atomic="true"
+            >
+                Enter your savings information to estimate
+                how long your goal could take.
+            </div>
+
+            <p class="business-disclaimer">
+                This estimate assumes monthly contributions and a
+                constant annual interest rate compounded monthly.
+                Actual account rates may change.
             </p>
 
         </section>
 
 
-        <section class="card">
+        <!-- LEARNING MORE -->
 
-            <h2>📈 Economic Data</h2>
+        <section class="global-next-steps">
 
-            <p>
-                Explore economic data and graphs to better understand
-                trends in inflation, GDP, unemployment, trade, and
-                other economic indicators.
-            </p>
+            <p class="eyebrow">Continue learning</p>
 
-        </section>
-
-
-        <section class="card">
-
-            <h2>🌎 Coming Soon</h2>
+            <h2>Understand the Ideas Behind the Numbers</h2>
 
             <p>
-                More interactive tools and real-world economic data
-                will be added as Beyond the Dollar develops.
+                Calculators are useful, but understanding the
+                financial concepts behind them is just as important.
+                Explore the other sections of Beyond the Dollar
+                to build your knowledge.
             </p>
+
+            <div class="hero-actions">
+                <a href="money.html" class="primary-link">
+                    Explore Personal Finance
+                </a>
+
+                <a href="economics.html" class="secondary-link">
+                    Explore Economics
+                </a>
+            </div>
 
         </section>
 
     </main>
 
 
+    <!-- FOOTER -->
+
+    <footer class="site-footer">
+
+        <div>
+            <h2>Beyond the Dollar</h2>
+
+            <p>
+                Understanding Money & the World Economy
+            </p>
+
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="money.html">Money</a>
+                <a href="economics.html">Economics</a>
+                <a href="business.html">Business</a>
+                <a href="global.html">Global Economy</a>
+                <a href="europe.html">Europe</a>
+                <a href="tools.html">Tools</a>
+                <a href="indicators.html">Indicators</a>
+            </div>
+        </div>
+
+        <p class="copyright">
+            © 2026 Beyond the Dollar. Educational purposes only.
+        </p>
+
+    </footer>
+
+
     <script>
+
+        // FORMAT NUMBERS AS US DOLLARS
+
+        function formatMoney(amount) {
+            return new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD"
+            }).format(amount);
+        }
+
+
+        // COMPOUND INTEREST CALCULATOR
 
         function calculateInterest() {
 
-            let principal =
-                Number(document.getElementById("principal").value);
+            const principal = Number(
+                document.getElementById("principal").value
+            );
 
-            let rate =
-                Number(document.getElementById("rate").value);
+            const rate = Number(
+                document.getElementById("rate").value
+            );
 
-            let years =
-                Number(document.getElementById("years").value);
+            const years = Number(
+                document.getElementById("years").value
+            );
 
-            let compound =
-                Number(document.getElementById("compound").value);
+            const compound = Number(
+                document.getElementById("compound").value
+            );
 
+            const output = document.getElementById("interest-result");
 
-            if (principal <= 0 || rate < 0 || years <= 0 || compound <= 0) {
-
-                document.getElementById("result").textContent =
-                    "Please enter valid numbers in every field.";
+            if (
+                !Number.isFinite(principal) ||
+                !Number.isFinite(rate) ||
+                !Number.isFinite(years) ||
+                principal <= 0 ||
+                rate < 0 ||
+                years <= 0 ||
+                compound <= 0
+            ) {
+                output.textContent =
+                    "Please enter a starting amount greater than zero, a non-negative interest rate, and a valid time period.";
 
                 return;
             }
 
-
-            let result = principal * Math.pow(
+            const finalAmount = principal * Math.pow(
                 1 + (rate / 100) / compound,
                 compound * years
             );
 
+            const interestEarned = finalAmount - principal;
 
-            let interestEarned = result - principal;
+            output.innerHTML = `
+                <strong>Final Amount:</strong>
+                ${formatMoney(finalAmount)}
+                <br><br>
+
+                <strong>Starting Amount:</strong>
+                ${formatMoney(principal)}
+                <br>
+
+                <strong>Interest Earned:</strong>
+                ${formatMoney(interestEarned)}
+            `;
+        }
 
 
-            document.getElementById("result").textContent =
-                "Final amount: $" + result.toFixed(2) +
-                " | Interest earned: $" + interestEarned.toFixed(2);
+        // MONTHLY BUDGET PLANNER
 
+        function calculateBudget() {
+
+            const income = Number(
+                document.getElementById("income").value
+            );
+
+            const housing = Number(
+                document.getElementById("housing").value || 0
+            );
+
+            const food = Number(
+                document.getElementById("food").value || 0
+            );
+
+            const transportation = Number(
+                document.getElementById("transportation").value || 0
+            );
+
+            const utilities = Number(
+                document.getElementById("utilities").value || 0
+            );
+
+            const other = Number(
+                document.getElementById("other-expenses").value || 0
+            );
+
+            const output = document.getElementById("budget-result");
+
+            const expenses = [
+                housing,
+                food,
+                transportation,
+                utilities,
+                other
+            ];
+
+            if (
+                document.getElementById("income").value === "" ||
+                !Number.isFinite(income) ||
+                income <= 0 ||
+                expenses.some(value => !Number.isFinite(value) || value < 0)
+            ) {
+                output.textContent =
+                    "Please enter a monthly income greater than zero and valid non-negative expense amounts.";
+
+                return;
+            }
+
+            const totalExpenses = expenses.reduce(
+                (total, value) => total + value,
+                0
+            );
+
+            const remaining = income - totalExpenses;
+
+            const savingsRate = (remaining / income) * 100;
+
+            let explanation;
+
+            if (remaining > 0) {
+                explanation =
+                    "Your income is greater than your listed expenses. The remaining amount could be saved or used for other goals.";
+            } else if (remaining === 0) {
+                explanation =
+                    "Your listed expenses equal your income. There is no money left over in this budget.";
+            } else {
+                explanation =
+                    "Your listed expenses are greater than your income. You may need to review your spending or income.";
+            }
+
+            output.innerHTML = `
+                <strong>Monthly Income:</strong>
+                ${formatMoney(income)}
+                <br>
+
+                <strong>Total Expenses:</strong>
+                ${formatMoney(totalExpenses)}
+                <br>
+
+                <strong>Money Remaining:</strong>
+                ${formatMoney(remaining)}
+                <br>
+
+                <strong>Remaining Income:</strong>
+                ${savingsRate.toFixed(1)}%
+                <br><br>
+
+                ${explanation}
+            `;
+        }
+
+
+        // SAVINGS GOAL CALCULATOR
+
+        function calculateSavingsGoal() {
+
+            const current = Number(
+                document.getElementById("current-savings").value
+            );
+
+            const target = Number(
+                document.getElementById("savings-target").value
+            );
+
+            const monthly = Number(
+                document.getElementById("monthly-savings").value
+            );
+
+            const annualRate = Number(
+                document.getElementById("savings-rate").value
+            );
+
+            const output = document.getElementById("savings-result");
+
+            if (
+                document.getElementById("current-savings").value === "" ||
+                document.getElementById("savings-target").value === "" ||
+                document.getElementById("monthly-savings").value === "" ||
+                !Number.isFinite(current) ||
+                !Number.isFinite(target) ||
+                !Number.isFinite(monthly) ||
+                !Number.isFinite(annualRate) ||
+                current < 0 ||
+                target <= 0 ||
+                monthly < 0 ||
+                annualRate < 0
+            ) {
+                output.textContent =
+                    "Please enter valid amounts. Your goal must be greater than zero.";
+
+                return;
+            }
+
+            if (current >= target) {
+                output.textContent =
+                    "You have already reached your savings goal!";
+
+                return;
+            }
+
+            if (monthly === 0 && annualRate === 0) {
+                output.textContent =
+                    "You need to enter a monthly contribution or an interest rate greater than zero.";
+
+                return;
+            }
+
+            const monthlyRate = annualRate / 100 / 12;
+
+            let balance = current;
+            let months = 0;
+
+            // Limit the estimate to 100 years.
+
+            while (balance < target && months < 1200) {
+
+                balance = balance * (1 + monthlyRate) + monthly;
+
+                months++;
+            }
+
+            if (balance < target) {
+                output.textContent =
+                    "Based on these numbers, the goal would take more than 100 years to reach. Consider adjusting your monthly contribution.";
+
+                return;
+            }
+
+            const years = Math.floor(months / 12);
+            const remainingMonths = months % 12;
+
+            let timeDescription = "";
+
+            if (years > 0) {
+                timeDescription += years +
+                    (years === 1 ? " year" : " years");
+            }
+
+            if (remainingMonths > 0) {
+                if (timeDescription !== "") {
+                    timeDescription += " and ";
+                }
+
+                timeDescription += remainingMonths +
+                    (remainingMonths === 1 ? " month" : " months");
+            }
+
+            if (timeDescription === "") {
+                timeDescription = "Less than one month";
+            }
+
+            output.innerHTML = `
+                <strong>Estimated Time:</strong>
+                ${timeDescription}
+                <br><br>
+
+                <strong>Target Amount:</strong>
+                ${formatMoney(target)}
+                <br>
+
+                <strong>Estimated Balance:</strong>
+                ${formatMoney(balance)}
+                <br>
+
+                <strong>Monthly Contribution:</strong>
+                ${formatMoney(monthly)}
+            `;
         }
 
     </script>
-
 
 </body>
 </html>
